@@ -6,7 +6,7 @@ public class BlockSpawner : MonoBehaviour
 {
     public GameObject blockPrefab;
     public Transform playerTransform;
-    public float distanceBetweenBlocks = 20f;
+    public float distanceBetweenBlocks = 0.0f;
 
     private float zSpawn = 0;
     private int numberOfBlocks = 10;
@@ -64,9 +64,10 @@ public class BlockSpawner : MonoBehaviour
         GameObject block = Instantiate(blockPrefab, transform.forward * zSpawn, transform.rotation);
         block.GetComponent<Renderer>().material.color = GenerateRandomColor();
         block.transform.localScale = new Vector3(9, height, 9);
-        block.transform.localPosition += new Vector3(0, block.transform.localScale.y / 2, 0);
+        block.transform.position += new Vector3(0, block.transform.localScale.y / 2, 0);
         activeBlocks.Add(block);
-        zSpawn += block.transform.localScale.z + distanceBetweenBlocks;
+        zSpawn = zSpawn + block.transform.localScale.z + distanceBetweenBlocks;
+       
     }
 
     private void DeleteBlock()

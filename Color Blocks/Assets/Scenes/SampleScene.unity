@@ -685,9 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 773eef33b01b82347a55a38f5a15204b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 10
-  jumpForce: 9.23
-  gravity: -10
+  gravity: -9.13
 --- !u!143 &616744050
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1555,7 +1553,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockPrefab: {fileID: 79370092234651153, guid: 3bf215e0ad75a8f4c8d27032a0ec720d, type: 3}
   playerTransform: {fileID: 616744048}
-  distanceBetweenBlocks: 2
+  distanceBetweenBlocks: 5
 --- !u!4 &1380425472
 Transform:
   m_ObjectHideFlags: 0
