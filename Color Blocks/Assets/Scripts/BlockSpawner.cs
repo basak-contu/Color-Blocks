@@ -31,11 +31,12 @@ public class BlockSpawner : MonoBehaviour
 
     private void StartingBlocks(int numberOfBlocks)
     {
-        SpawnBlock(25);
+        SpawnBlock(25, 20,colors[0]);
         for (int i = 1; i < numberOfBlocks; i++)
         {
-            int height = Random.Range(25, 40);
-            SpawnBlock(height);
+            int height = Random.Range(25, 35);
+            Color color = GenerateRandomColor();
+            SpawnBlock(height, 9, color);
         }
     }
 
@@ -44,8 +45,9 @@ public class BlockSpawner : MonoBehaviour
     {
         if(zSpawn - playerTransform.position.z < 50)
         {
-            int height = Random.Range(25, 40);
-            SpawnBlock(height);
+            int height = Random.Range(25, 35);
+            Color color = GenerateRandomColor();
+            SpawnBlock(height, 9, color);
         }
         if (playerTransform.position.z - 50 > activeBlocks[0].transform.position.z)
             DeleteBlock();
@@ -59,11 +61,11 @@ public class BlockSpawner : MonoBehaviour
         return randomColor;
     }
 
-    void SpawnBlock(int height)
+    void SpawnBlock(int height, int width, Color color)
     {
         GameObject block = Instantiate(blockPrefab, transform.forward * zSpawn, transform.rotation);
-        block.GetComponent<Renderer>().material.color = GenerateRandomColor();
-        block.transform.localScale = new Vector3(9, height, 9);
+        block.GetComponent<Renderer>().material.color = color;
+        block.transform.localScale = new Vector3(9, height, width);
         block.transform.position += new Vector3(0, block.transform.localScale.y / 2, 0);
         activeBlocks.Add(block);
         zSpawn = zSpawn + block.transform.localScale.z + distanceBetweenBlocks;
