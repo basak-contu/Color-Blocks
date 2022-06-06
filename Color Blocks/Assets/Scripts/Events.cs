@@ -1,26 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Events : MonoBehaviour
 {
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Animator animator;
 
 
     public void ChangeColorToRed()
     {
-        player.gameObject.GetComponent<Renderer>().material.color = new Color(1, 0.01999587f, 0, 1); //Red
+        player.gameObject.GetComponent<Renderer>().material.color = new Color(1, 0.1537181f, 0.1367925f, 1); //Red
     }
     public void ChangeColorToBlue()
     {
